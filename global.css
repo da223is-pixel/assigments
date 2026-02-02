@@ -1,0 +1,62 @@
+html {
+    font-size: 16px;
+}
+
+html,
+body,
+nav,
+header,
+aside,
+main,
+footer,
+div,
+article,
+section {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(179, 71, 71, 0.45);
+    margin: 0 auto;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+header {
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgba(139, 20, 20, 0.545);
+    padding: 0.1em;
+    text-align: center;
+
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: aliceblue;
+}
+
+nav ul {
+    font-size: small;
+    display: flex;
+
+}
+
+nav ul li {
+    margin: auto;
+    display: inline-block;
+
+}
+
+main {
+    text-align: center;
+    margin-top: 4em;
+}
+
+#assignments {
+    margin-bottom: 3em;
+}
