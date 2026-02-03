@@ -1,8 +1,8 @@
 
 
 const navLinks = [
-    { text: "Start", url: "./index.html" },
-    { text: "Uppgift 1", url: "../index.html" },
+    { text: "Start", url: "/assigments/index.html" },
+    { text: "Uppgift 1", url: "/assigments/assignment1/index.html" },
 
 ];
 const ul = document.querySelector("#globalNav ul");
