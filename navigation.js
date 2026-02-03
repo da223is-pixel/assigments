@@ -1,9 +1,8 @@
-import { assignments, myInfo } from "./assignments.js";
 
 
 const navLinks = [
-    { text: "Start", url: "../index.html" },
-    { text: "Uppgift 1", url: "assignment1/index.html" },
+    { text: "Start", url: "./index.html" },
+    { text: "Uppgift 1", url: "../index.html" },
 
 ];
 const ul = document.querySelector("#globalNav ul");
