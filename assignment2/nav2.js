@@ -1,2 +1,2 @@
 import { actualNav } from "../navigation.js";
-actualNav (2);
+actualNav (2,true);

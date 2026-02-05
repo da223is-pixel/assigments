@@ -1,0 +1,15 @@
+
+
+
+
+.products { /*produkt-listan*/
+display: grid;
+grid-template-columns: rpeat(auto-fill, minmax(200px, 4fr));
+gap:1rem;
+
+}
+
+
+.sidebar{ /*kundvagn*/
+
+}
