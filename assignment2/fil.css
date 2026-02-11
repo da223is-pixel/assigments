@@ -1,15 +1,68 @@
-
-
-
-
-.products { /*produkt-listan*/
-display: grid;
-grid-template-columns: rpeat(auto-fill, minmax(200px, 4fr));
-gap:1rem;
+.products {
+    /*produkt-listan*/
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
 
 }
 
+.products img {
+    width: 100%;
+    height: auto;
 
-.sidebar{ /*kundvagn*/
+}
+main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 3rem;
+    height: 400px;
+
+}
+.productCard {
+    border: 1px solid #000;
+    background-color:rgba(150, 150, 150, 0.981);
+
+}
+
+.sidebar {
+    /*kundvagn*/
+   width:400px;
+    border: 3px solid #000;
+    background-color:rgb(213, 203, 203);
+    
+}
+
+header {
+    background-color: rgb(43, 114, 219);
+}
+
+footer {
+background-color: rgba(60, 121, 213, 0.85);
+}
+body{
+   background-color: rgba(60, 121, 213, 0.537); 
+}
+
+.productCard button:hover {
+    background-color:rgb(212, 187, 154);
+}
+
+.productCard button {
+    display: block;
+    width:50%;
+    cursor:pointer;
+    border: 2px solid #000;
+    border-radius: 5px;
+    margin: 1rem auto; 
+    text-align: center;
+    box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.3) ;
+
+}
+.items div {
+ display: block;
+ margin: auto;
+ text-align: center; 
 
 }
