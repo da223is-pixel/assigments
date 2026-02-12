@@ -5,6 +5,11 @@ const proContainer = document.querySelector("#product-container");
 const cartItems = document.querySelector("#cart-items");
 
 let cart = []; //Kundvagenens array.
+const cartData = localStorage.getItem("cart");// hämtar det som spard i cart för att vid siduppladning ska den synas (när produkt korten addas och tas bort)
+if (cartData) {
+    cart = JSON.parse(cartData); // (omvandlas till objekt den den var från början för att kunna använda den igen.)
+    renderCarts(cart); // kör den så den sysn på sida.
+}
 
 function renderProducts(productsArray) {
 
@@ -30,39 +35,40 @@ function renderProducts(productsArray) {
         id.append(product.id)
         category.append(product.category)
         btnPro.textContent = "Lägg i kundvagn";
-        
+
         div.append(img, name, price, description, category);
         proContainer.append(div)
         div.append(btnPro);
 
-        btnPro.addEventListener("click", function () {
-        let isIncart = false;
+        btnPro.addEventListener("click", () => {
+            let isIncart = false;
 
-            for (let i=0; i < cart.length; i++) {
+            for (let i = 0; i < cart.length; i++) {
 
                 if (cart[i].id === product.id) { // antalet ökas om den finns redan
                     cart[i].count += 1;
-                   isIncart = true;
-                   break;
+                    isIncart = true;
+                    break;
 
-              }
-              
+                }
+
             }
             if (!isIncart) {
                 cart.push({
-                    id:product.id,
-                    name:product.name,
-                    price:product.price,
-                    image:product.image,
-                    category:product.category,
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    category: product.category,
                     count: 1
 
                 })// första gången när produkten inte finns i vagnen skapas den.
-             
+
             }
-            renderCarts (cart)
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCarts(cart)
         })
-         
+
     }
 };
 
@@ -70,31 +76,50 @@ renderProducts(jewlryProducts);
 
 
 
-function renderCarts (cart){
- cartItems.innerHTML = "";
-for (let item of cart) {
-const name = document.createElement("h4");
-const priceCount= document.createElement("div");
-const price= document.createElement("p");
-const count= document.createElement("p");
+function renderCarts(cart) {
+    cartItems.innerHTML = "";
+    let total = 0;
+
+    for (let item of cart) {
+        const name = document.createElement("h4");
+        const priceCount = document.createElement("div");
+        const price = document.createElement("p");
+        const count = document.createElement("p");
+        const itemDiv = document.createElement ("div")
 
 
-name.append(item.name)
+        itemDiv.classList.add ("cart-item")
+        name.append(item.name)
 
-count.textContent = (item.count+" *")
+        count.textContent = (item.count + " *")
 
-price.textContent = (item.price+" kr")
+        price.textContent = (item.price + " kr")
 
-priceCount.append(count, price);
-priceCount.style.display= "flex";
+        total += (item.price * item.count)
 
-cartItems.append( name, priceCount)
+        priceCount.append(count, price);
+
+        priceCount.style.display = "flex";
+         
+        itemDiv.append(name, priceCount);
+        cartItems.append(itemDiv);
 
 
-}
+    }
+    const sum = document.createElement("p");
+    sum.textContent = (`Totalsumma: ${total} kr`);
+    cartItems.append(sum);
 };
 
-const clearBtn = document.createElement(button);
-clearBtn.append
 
- 
+const clearItems = document.getElementById("clear-items");
+clearItems.textContent = ("Tömma");
+
+clearItems.addEventListener("click", () => {
+    cart = [];  // skpar vi en tom array.
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCarts(cart); //innehållet
+
+
+});
+
