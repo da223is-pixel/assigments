@@ -8,7 +8,7 @@ let cart = []; //Kundvagenens array.
 const cartData = localStorage.getItem("cart");// hämtar det som spard i cart för att vid siduppladning ska den synas (när produkt korten addas och tas bort)
 if (cartData) {
     cart = JSON.parse(cartData); // (omvandlas till objekt den den var från början för att kunna använda den igen.)
-    renderCarts(cart); // kör den så den sysn på sida.
+    renderCarts(cart); // kör den så den sysn på sidan.
 }
 
 function renderProducts(productsArray) {
