@@ -11,7 +11,14 @@ export const assignments = [{
     link: "assignment2/index.html",
     description: "Bygg en dynamisk sida med JS och kundvagn som sparas i localStorage.",
 
-}  ];
+},
+{  title: "Turneringsgeneratorn",
+    id: "Assignment 3",
+    link: "assignment3/index.html",
+    description: "Bygg en webbapp som laddar deltagare fråm JSON-fil, skapar matcher med klasser och visar ett dynamisk slutspelträd där användaren kan avgöra vinnarna.",
+
+} 
+];
 
 
 
