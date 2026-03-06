@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../global.css">
     <link rel="stylesheet" href="style.css">
-    <script type="module" src = "nav3.js"></script>
-    <script type="module" src = "main.js"></script>
+    <script type="module" src="nav3.js"></script>
+    <script type="module" src="main.js"></script>
 
 </head>
+
 <body>
-        <header>
+    <header>
         <h1> Webbteknik 3 - 1ME323</h1>
         <nav id="globalNav">
             <ul></ul>
         </nav>
     </header>
     <main>
-       <h2> Husdjurmästarskapet</h2>
-       <button id="simulate">Simulera nästa runda </button>
-       <button id="reset">Starta om</button> 
-        <div>  </div>
+        <div id="head1">
+        <h2> Husdjurmästarskapet</h2>
+        <p> 8 husdjur, 3 rundor, 1 mästare.</p>
+        </div>
+        <button id="simulateBtn">Simulera Kvartsfinal </button>
+        <button id="resetBtn">Starta om</button>
+
+        <div id="tournament" class="bracket">
+
+         <div class="round">
+            <h3 class="round-title">kvartsfinal</h3>
+
+         </div>
+
+         <div class="round">
+            <h3 class="round-title">Semifinal</h3>
+         </div>
+          <div class="round">
+            <h3 class="round-title">Final</h3>
+         </div>
 
 
-
-
-
-
+        </div>
     </main>
 
-     <footer> Diana Ahmadi - Webbteknik 3 (1ME323) - da223is</footer>
+    <footer> Diana Ahmadi - Webbteknik 3 (1ME323) - da223is</footer>
 </body>
+
 </html>
