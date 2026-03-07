@@ -16,11 +16,11 @@ export class Match {
 
 
     divElement.innerHTML = `
-    <p class="player"> ${this.#contestantA.name} ${this.#contestantA.skillLevel ?? "?"}</p>
-    <p>${this.#contestantA.catchphrase ?? "..."}</p>
+    <h5 class="player"> ${this.#contestantA.name} </h5>
+    <p> "${this.#contestantA.catchphrase ?? "..."}"</p>
 
-      <p class="player"> ${this.#contestantB.name} ${this.#contestantB.skillLevel ?? "?"}</p>
-      <p>${this.#contestantB.catchphrase ?? "..."}</p>
+      <h5 class="player"> ${this.#contestantB.name} </h5>
+      <p>"${this.#contestantB.catchphrase ?? "..."}"</p>
     `
     this.#element = divElement
     return divElement

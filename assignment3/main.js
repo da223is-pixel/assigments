@@ -9,31 +9,48 @@ const simulateBtn = document.querySelector("#simulateBtn")
 const resetBtn = document.querySelector("#resetBtn")
 const rounds = document.querySelectorAll(".round")
 
-
-
 let tournament = new Tournament(contestants)
 renderRound(tournament.start(), 0)
 
-simulateBtn.addEventListener("click", () => {
-    tournament.matches.forEach(match => match.compete())
-    const nextMatches = tournament.playRound()
 
+
+simulateBtn.addEventListener("click", () => {
+    const nextMatches = tournament.playRound()
     if (nextMatches) {
-        renderRound(nextMatches, tournament.round)
+        const nextRoundIndex = tournament.round
+        renderRound(nextMatches, nextRoundIndex)
+        const h3 = rounds[nextRoundIndex].querySelector(".round-title")
+        h3.style.display = "block"
+
+        simulateBtn.textContent = "simulera" + rounds[nextRoundIndex].querySelector(".round-title").textContent
+    }
+    else {
+        simulateBtn.style.display = "none"
     }
 
 })
 
 
 resetBtn.addEventListener("click", () => {
-    rounds.forEach(round => {
-        round.innerHTML = ""
-    })
+    simulateBtn.style.display = "block"
+    simulateBtn.textContent = "Simulerakvartsfinal"
 
+    rounds.forEach(round => {
+        round.querySelectorAll(".match").forEach(m => m.remove())
+    })
+    rounds.forEach((round, index) => {
+        const title = round.querySelector(".round-title")
+        if (index === 0) {
+            title.style.display = "block"
+        } else {
+            title.style.display = "none"
+        }
+    })
     tournament = new Tournament(contestants)
     const matches = tournament.start()
     renderRound(matches, 0)
 })
+
 
 function renderRound(matches, roundIndex) {
     const roundDiv = rounds[roundIndex]
@@ -42,3 +59,5 @@ function renderRound(matches, roundIndex) {
         roundDiv.appendChild(element)
     })
 }
+
+
