@@ -18,6 +18,8 @@ container.innerHTML = `
 <h3> ${assignments[2].id} : ${assignments[2].title} </h3> <p>${assignments[2].description}  
 <a href= "assignment3/index.html"> Gå till uppgift 3 </a></p>
 
+<h3> ${assignments[3].id} : ${assignments[3].title} </h3> <p>${assignments[3].description}  
+<a href= "assignment4/index.html"> Gå till uppgift 4 </a></p>
 `;
 
 

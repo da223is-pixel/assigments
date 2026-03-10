@@ -2,7 +2,9 @@ const navLinks = [
     { text: "Start", url: "index.html" },
     { text: "Uppgift 1", url: "assignment1/index.html" },
      { text: "Uppgift 2", url: "assignment2/index.html" },
-      { text: "Uppgift 3", url: "assignment3/index.html" }
+      { text: "Uppgift 3", url: "assignment3/index.html" },
+         
+      { text: "Uppgift 4", url: "assignment4/index.html" }
 
 ]; //imp.ist
 

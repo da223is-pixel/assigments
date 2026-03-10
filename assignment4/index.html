@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spökhusbyrån</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="module" src="./js/index.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Spökhusbyrån</h1>
+    </header>
+
+    <main>
+        <div id="houseContain"></div>
+    </main>
+
+
+    <form id="filterForm">
+
+        <legend id="formTitle">Filterformulär</legend>
+        <fieldset>
+            <label for="max-price">
+                Maxpris per natt:
+                <input type="number" id="max-price" name="max-price">
+            </label>
+        </fieldset>
+        <fieldset>
+            <label for="horror-level">
+                Skräcknivå:
+                <input type="range" id="horror-level" name="horror-level">
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <label for="ghost-type">
+                Spöktyp:
+                <select id="ghost-type" name="ghost-type">
+
+                </select>
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <label for="wifi">
+                Wifi-krav:
+                <input type="checkbox" id="wifi" name="wifi">   
+            </label>
+        </fieldset>
+
+    </form>
+
+
+    <footer>Diana Ahmadi - Webbteknik 3 (1ME323) - da223is</footer>
+
+</body>
+
+</html>

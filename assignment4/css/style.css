@@ -1,0 +1,71 @@
+html {
+    font-size: 16px;
+}
+
+html,
+body,
+nav,
+header,
+aside,
+main,
+footer,
+div,
+article,
+section {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    font-weight: bold;
+    font-family:fantasy;
+    background-color: rgba(165, 7, 7, 0.81);
+    padding: 1em;
+    text-align: center;
+    margin:0;
+    color: aliceblue;
+
+}
+body {
+    background-color: rgba(9, 0, 0, 0.866);
+    margin: 0 auto;
+    font-family:fantasy;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    counter-reset:aliceblue;
+}
+
+footer {
+
+    font-family: Tahoma, sans-serif;
+    background-color: rgba(211, 56, 56, 0.632);
+    padding: 1em;
+    text-align: center;
+    color: aliceblue;
+    margin-top: auto;
+}
+
+
+#houseContain{
+display: grid;
+grid-template-columns:repeat(3, 1fr);
+gap:2px;
+}
+
+img{
+    width:100%;
+    height:auto;
+}
+
+#formTitle{
+font-size:larger;
+text-align: center;
+}
+
+#filterForm{
+    color: aliceblue;
+    width: 600px;
+    margin:0 auto;
+    
+}
