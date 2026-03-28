@@ -13,45 +13,47 @@
     <header>
         <h1>Spökhusbyrån</h1>
     </header>
+    <form id="filterForm">
+
+        <legend id="formTitle">Filterformulär</legend>
+        <fieldset>
+            <label for="max-price"> </label>
+            Maxpris per natt:
+            <input type="number" id="max-price" name="max-price" placeholder="T.ex 1000">
+
+        </fieldset>
+        <fieldset>
+            <label for="horror-level"> </label>
+            Skräcknivå: <p id="horrorText"></p>
+            <input type="range" id="horror-level" value="1" min="1" max="5" name="horror-level">
+
+
+        </fieldset>
+
+        <fieldset>
+            <label for="ghost-type"></label>
+            Spöktyp:
+            <select id="ghost-type" name="ghost-type">
+                <option value="all">Alla typer</option>
+            </select>
+
+        </fieldset>
+
+        <fieldset>
+            <label for="wifi"> </label>
+            Wifi-krav:
+            <input type="checkbox" id="wifi" name="wifi">
+
+        </fieldset>
+
+    </form>
+
 
     <main>
         <div id="houseContain"></div>
     </main>
 
 
-    <form id="filterForm">
-
-        <legend id="formTitle">Filterformulär</legend>
-        <fieldset>
-            <label for="max-price">
-                Maxpris per natt:
-                <input type="number" id="max-price" name="max-price">
-            </label>
-        </fieldset>
-        <fieldset>
-            <label for="horror-level">
-                Skräcknivå:
-                <input type="range" id="horror-level" name="horror-level">
-            </label>
-        </fieldset>
-
-        <fieldset>
-            <label for="ghost-type">
-                Spöktyp:
-                <select id="ghost-type" name="ghost-type">
-
-                </select>
-            </label>
-        </fieldset>
-
-        <fieldset>
-            <label for="wifi">
-                Wifi-krav:
-                <input type="checkbox" id="wifi" name="wifi">   
-            </label>
-        </fieldset>
-
-    </form>
 
 
     <footer>Diana Ahmadi - Webbteknik 3 (1ME323) - da223is</footer>
