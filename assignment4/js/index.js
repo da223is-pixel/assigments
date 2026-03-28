@@ -1,5 +1,10 @@
 
 const filterForm = document.querySelector("#filterForm");
+const maxPrice = document.querySelector("#max-price");
+const horrorLevel = document.querySelector("#horror-level");
+const horrorTextp = document.querySelector("#horrorText");
+const ghostType = document.querySelector("#ghost-type");
+const wifi = document.querySelector("#wifi");
 
 let houses;
 let scareText;
@@ -7,12 +12,13 @@ let houseContain;
 
 async function renderHouses() {
   try {
+    houseContain = document.querySelector("#houseContain");
     const response = await fetch("./data/houses.json")
     houses = await response.json()
     scareText = ["Mysigt", "Lite läskigt", "Obehagligt", "Skräckinjagande", "Ren terror"]
     render(houses)
     horrorTextp.textContent = scareText[0];
-    
+
     for (let house of houses) {
 
       for (let i = 0; i < house.ghostTypes.length; i++) {// för dropdown, med ghosttyper.
@@ -33,6 +39,46 @@ async function renderHouses() {
 
       }
     }
+    function filterAtSameTime() { // för att alla filter ska fungera samtidigt.
+      let level = Number(horrorLevel.value);//1-5 i rangeNr.
+      let priceInput = Number(maxPrice.value);
+      let ghostValue = ghostType.value;
+      let wifiChecked = wifi.checked//wifi
+
+      const filterAllhouses = houses
+        .filter(h => h.scareLevel >= level)
+        .filter(h => !priceInput || h.pricePerNight <= priceInput)
+        .filter(h => ghostValue === "all" || h.ghostTypes.includes(ghostValue))
+        .filter(h => !wifiChecked || h.hasWifi === true)
+
+      render(filterAllhouses)
+
+    }
+
+    horrorLevel.addEventListener("input", () => {
+      horrorTextp.textContent = scareText[horrorLevel.value - 1];
+      filterAtSameTime();
+    }
+    )
+
+    maxPrice.addEventListener("input", () => {
+      filterAtSameTime();
+      let priceValue = Number(maxPrice.value)
+      let anyMatch = false;
+      for (let h of houses) {
+        if (h.pricePerNight <= priceValue) {
+          anyMatch = true;
+          break
+        }
+      }
+      if (!anyMatch) {
+        houseContain.innerHTML = `<p class='error'> Inga hus matchar det valda priset, försök igen!</p>`
+      }
+    })
+
+    ghostType.addEventListener("change", filterAtSameTime)
+
+    wifi.addEventListener("change", filterAtSameTime)
 
   } catch (error) {
     houseContain = document.querySelector("#houseContain");
@@ -47,9 +93,10 @@ function render(array) {
     <h2>${house.name}</h2>
     <p>${house.location}</p>
     <p>${house.pricePerNight}kr / natt</p>
+    <p>Spöken: ${house.ghostTypes}</p>
      <p>Skräcknivå: ${scareText[house.scareLevel - 1]}</p>
 
-    <a href="house.html?id=${house.id}">Läs mer och boka </a>
+    <button><a href="house.html?id=${house.id}">Läs mer och boka </a></button>
     
     </article>`)
   const houseContain = document.querySelector("#houseContain");
@@ -57,50 +104,10 @@ function render(array) {
 }
 renderHouses()
 
-const maxPrice = document.querySelector("#max-price");
-const horrorLevel = document.querySelector("#horror-level");
-const horrorTextp = document.querySelector("#horrorText");
-const ghostType = document.querySelector("#ghost-type");
-const wifi = document.querySelector("#wifi");
 
 
 
-horrorLevel.addEventListener("input", () => {
-  let level = Number(horrorLevel.value);//1-5 i rangeNr.
-  horrorTextp.textContent = `${scareText[level - 1]}`;
-  let houseScare = houses.filter(h => h.scareLevel >= level);
-  render(houseScare)
-})
 
-maxPrice.addEventListener("input", () => {
-  let priceInput = Number(maxPrice.value);
-  let filterPrice = houses.filter(h => h.pricePerNight == priceInput)
-  if (filterPrice.length === 0) {// om inget i arrayen som filter gör matchar vosa felmedelande.
-    houseContain = document.querySelector("#houseContain");
-    houseContain.innerHTML = `<p class='error'> Inga hus matchar det valda priset, försök igen!</p>`
-  }
-  else {
-    render(filterPrice)
-  }
-});
-
-
-ghostType.addEventListener("change", () => {
-  let ghostValue = ghostType.value;
-  let ghostFilter = houses.filter(h => h.ghostTypes.includes(ghostValue))
-
-  render(ghostFilter)
-})
-
-wifi.addEventListener("change", () => {
-  if (wifi.checked) {
-    let wifiFilter = houses.filter(h => h.hasWifi)
-    render(wifiFilter)
-  }
-  else {
-    render(houses) // alla hus när det wifi är  ej vald.
-  }
-})
 
 
 
