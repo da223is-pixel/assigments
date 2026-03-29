@@ -51,9 +51,13 @@ async function renderHouses() {
         .filter(h => ghostValue === "all" || h.ghostTypes.includes(ghostValue))
         .filter(h => !wifiChecked || h.hasWifi === true)
 
-      render(filterAllhouses)
+         if ( filterAllhouses.length === 0) {
+        houseContain.innerHTML = `<p class='error'> Inga hus matchar ditt val, ändra ditt val!</p>`;}
+        else {
+           render(filterAllhouses)
 
-    }
+        }
+      }
 
     horrorLevel.addEventListener("input", () => {
       horrorTextp.textContent = scareText[horrorLevel.value - 1];
@@ -63,17 +67,7 @@ async function renderHouses() {
 
     maxPrice.addEventListener("input", () => {
       filterAtSameTime();
-      let priceValue = Number(maxPrice.value)
-      let anyMatch = false;
-      for (let h of houses) {
-        if (h.pricePerNight <= priceValue) {
-          anyMatch = true;
-          break
-        }
-      }
-      if (!anyMatch) {
-        houseContain.innerHTML = `<p class='error'> Inga hus matchar det valda priset, försök igen!</p>`
-      }
+     
     })
 
     ghostType.addEventListener("change", filterAtSameTime)
@@ -93,7 +87,6 @@ function render(array) {
     <h2>${house.name}</h2>
     <p>${house.location}</p>
     <p>${house.pricePerNight}kr / natt</p>
-    <p>Spöken: ${house.ghostTypes}</p>
      <p>Skräcknivå: ${scareText[house.scareLevel - 1]}</p>
 
     <button><a href="house.html?id=${house.id}">Läs mer och boka </a></button>

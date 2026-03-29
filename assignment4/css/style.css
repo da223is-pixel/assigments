@@ -16,24 +16,26 @@ section {
     padding: 0;
     box-sizing: border-box;
 }
+
 header {
     font-weight: bold;
-    font-family:fantasy;
+    font-family: fantasy;
     background-color: rgba(165, 7, 7, 0.81);
     padding: 1em;
     text-align: center;
-    margin:0;
+    margin: 0;
     color: aliceblue;
 
 }
+
 body {
     background-color: rgba(9, 0, 0, 0.866);
     margin: 0 auto;
-    font-family:fantasy;
+    font-family: fantasy;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    counter-reset:aliceblue;
+    counter-reset: aliceblue;
 }
 
 footer {
@@ -47,39 +49,91 @@ footer {
 }
 
 
-#houseContain{
-display: grid;
-grid-template-columns:repeat(3, 1fr);
-max-width:1200px;
-padding:10px;
-gap:25px;
-margin:0 auto;
-color: aliceblue;
+#houseContain {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    padding: 10px;
+    gap: 25px;
+    margin: 0 auto;
+    color: aliceblue;
 }
 
-img{
-    width:100%;
-    height:auto;
+#oneHouseContain {
+    display: block;
+    max-width:40%;
+    padding: 10px;
+    gap: 50px;
+    margin: 0 auto;
+    color: aliceblue;
+
 }
 
-#formTitle{
-font-size:larger;
-text-align: center;
+img {
+    width: 100%;
+    height: auto;
 }
 
-#filterForm{
+#formTitle {
+    font-size: larger;
+    text-align: center;
+}
+
+#filterForm {
     color: aliceblue;
     width: 100%;
-    margin:0 auto;
-    margin-top:10px;
-    display:flex; 
-    gap:10px;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
     align-items: center;
-    justify-content:center; 
-    
+    justify-content: center;
+
 }
-img{
-   width:100%;
-   height:300px;
-  
+
+#filterFormHouse {
+    color: aliceblue;
+    width:90%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    margin-top: 10px;
+    display: inline-block;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+}
+.backLink a{
+color:darkturquoise;
+
+font-size: 20px;
+font-weight: bolder;
+}
+
+
+img {
+    width: 100%;
+    height: 300px;
+
+}
+#bookBtn{
+cursor:pointer;
+padding: 10px 20px;
+border:black;
+margin-top:20px;
+
+}
+
+#bookBtn:hover{
+    background-color: brown;
+}
+.feedback{
+    background-color: rgba(29, 154, 37, 0.489);
+    border: crimson;
+    padding: 2px;
+    margin-bottom: 10px;
+}
+#map{
+    height:400px;
+    width:100%
 }

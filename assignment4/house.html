@@ -1,58 +1,31 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spökhusbyrån</title>
-    <link rel="stylesheet" href="./css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spökhusbyrån</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script type="module" src="./js/house.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
+
 <body>
-    <header>
-     <h1>Spökhusbyrån</h1>   
+  <header>
+    <h1>Spökhusbyrån</h1>
   </header>
-    <main>
+  <main>
 
-    </main>
-    <form id="filterForm">
+    <div id="oneHouseContain"></div>
 
-        <legend id="formTitle">Bookningformulär</legend>
-        <fieldset>
-            <label for="date">
-                Datum:
-                <input type="date" id="date" name="date" required>
-            </label>
-        </fieldset>
-        <fieldset>
-            <label for="count-day">
-                Antal dagar:
-                <input type="number" id="count-day" value="0" min="1" max="100" name="count-day" required>
-            </label>
-        </fieldset>
 
-        <fieldset>
-            <label for="break-fast">
-               Frukost:
-                <input type="checkbox" id="break-fast" name="break-fast">   
-            </label>
-        </fieldset>
+  </main>
 
-          <fieldset>
-            <label for="ghost-walk">
-              Spökvandring:
-                <input type="checkbox" id="ghost-walk" name="ghost-walk">   
-            </label>
-        </fieldset>
 
-         <fieldset>
-            <label for="night-session">
-              Nattlig seans:
-                <input type="checkbox" id="night-session" name="night-session">   
-            </label>
-        </fieldset>
 
-    </form>
 
-     
-      <footer> Diana Ahmadi - Webbteknik 3 (1ME323) - da223is</footer>
+  <footer> Diana Ahmadi - Webbteknik 3 (1ME323) - da223is</footer>
 </body>
+
 </html>
